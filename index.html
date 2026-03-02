@@ -1,32 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposta comissionamento Goianita</title>
-
-    <!-- Google Fonts: Inter para Títulos, Roboto para Corpo -->
+    <title>Novo Modelo de Comissionamento Estratégico - CASTOR RH</title>
+    
+    <!-- Tipografia Live V6.0 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
-        /* --- Tokens V6.0 (Live Consultoria) --- */
+        /* 1. NÚCLEO DA IDENTIDADE VISUAL (Brand Core V6.0) */
         :root {
+            /* Atmosfera (Backgrounds) */
             --live-deep: #06192a;
+            
+            /* Superfícies (Refractive Glass) */
             --live-glass: rgba(10, 36, 61, 0.70);
             --live-glass-hover: rgba(15, 45, 75, 0.85);
             --glass-blur: blur(16px) saturate(180%);
-            --live-accent: #00d1b2;
-            --live-accent-glow: rgba(0, 209, 178, 0.4);
-            --live-text-primary: #e0e6ed;
+            
+            /* Luz & Ação */
+            --live-accent: #0ef595;
+            --live-accent-glow: rgba(14, 245, 149, 0.3);
+            
+            /* Tipografia Cores */
+            --live-text-main: #ffffff;
             --live-text-secondary: #94a3b8;
-            --live-border: rgba(255, 255, 255, 0.05);
+            
+            /* Bordas & Sombras */
+            --live-border: rgba(255, 255, 255, 0.1);
+            --live-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            
+            /* Status Semântico */
+            --live-error: #f87171;
+            --live-warning: #fbbf24;
+            --live-info: #38bdf8;
+            
+            /* Transições (Micro-springs) */
+            --transition-spring: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
+        /* 2. BASE RESET & TIPOGRAFIA */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -35,510 +54,569 @@
 
         body {
             background-color: var(--live-deep);
-            color: var(--live-text-primary);
-            font-family: 'Roboto', sans-serif;
+            color: var(--live-text-main);
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            padding: 2rem;
-            /* Efeito de iluminação sutil no fundo (Flashlight/Glow) */
-            background-image: radial-gradient(circle at top right, rgba(0, 209, 178, 0.05), transparent 40%),
-                radial-gradient(circle at bottom left, rgba(10, 36, 61, 0.8), transparent 40%);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            
+            /* Background sutil para dar profundidade */
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(14, 245, 149, 0.03), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(56, 189, 248, 0.03), transparent 25%);
             background-attachment: fixed;
         }
 
-        h1,
-        h2,
-        h3 {
+        h1, h2, h3, h4 {
             font-family: 'Inter', sans-serif;
-            color: var(--live-text-primary);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--live-text-main);
+            margin-bottom: 1rem;
+        }
+
+        p, li {
+            font-size: 1.125rem;
+            color: var(--live-text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        strong {
+            color: var(--live-text-main);
             font-weight: 600;
+        }
+
+        .data-text {
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        /* 3. LAYOUT & ORGANISMOS */
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 80px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
         }
 
         header {
             text-align: center;
-            margin-bottom: 3rem;
-            padding-top: 2rem;
+            padding: 60px 0 40px;
+            position: relative;
         }
 
         header h1 {
-            font-size: 2.5rem;
-            color: var(--live-accent);
-            text-shadow: 0 0 20px var(--live-accent-glow);
-            margin-bottom: 0.5rem;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--live-text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         header p {
-            color: var(--live-text-secondary);
-            font-size: 1.1rem;
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        /* --- Grid & Organismos --- */
-        .module-section {
-            margin-bottom: 4rem;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
+        .accent-text {
+            color: var(--live-accent);
         }
 
-        .module-title {
-            font-size: 1.8rem;
-            border-bottom: 1px solid var(--live-border);
-            padding-bottom: 0.5rem;
-            margin-bottom: 2rem;
-            display: inline-block;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 2rem;
-        }
-
-        /* --- Glass Cards (Moléculas) --- */
-        .glass-card {
+        /* 4. COMPONENTES: GLASS PANELS (MOLÉCULAS) */
+        .glass-panel {
             background: var(--live-glass);
             backdrop-filter: var(--glass-blur);
             -webkit-backdrop-filter: var(--glass-blur);
             border: 1px solid var(--live-border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
+            border-radius: 16px;
+            box-shadow: var(--live-shadow);
+            padding: 48px;
+            transition: var(--transition-spring);
+            position: relative;
+            overflow: hidden;
         }
 
-        .glass-card:hover {
+        .glass-panel:hover {
             background: var(--live-glass-hover);
             transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-color: rgba(255, 255, 255, 0.2);
         }
-
-        .glass-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: var(--live-accent);
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            border: 1px solid var(--live-border);
-            background-color: #000;
-        }
-
-        .video-container iframe {
+        
+        /* Borda Neon sutil no topo do painel */
+        .glass-panel::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--live-border), transparent);
         }
 
-        /* --- Accordion para Passo a Passo (Acessibilidade) --- */
-        details {
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--live-border);
-            border-radius: 8px;
-            margin-top: auto;
-            /* Empurra para o final do card */
+        .section-header {
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--live-border);
+            padding-bottom: 16px;
         }
 
-        summary {
-            padding: 1rem;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            cursor: pointer;
-            outline: none;
-            color: var(--live-text-primary);
-            transition: color 0.3s ease;
-            list-style: none;
-            /* Remove seta padrão em alguns browsers */
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            gap: 12px;
         }
 
-        summary::-webkit-details-marker {
-            display: none;
-        }
-
-        summary::after {
-            content: '+';
+        .section-header h2 i {
             color: var(--live-accent);
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
+            font-size: 1.75rem;
         }
 
-        details[open] summary::after {
-            content: '−';
-            transform: rotate(180deg);
+        /* 5. GRIDS E ESTRUTURAS DE CONTEÚDO */
+        .grid-2-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
         }
 
-        summary:hover {
+        .grid-3-col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        /* 6. ÁTOMOS ESPECÍFICOS */
+        /* Cards de KPI */
+        .kpi-card {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--live-border);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            border-left: 4px solid var(--live-accent);
+        }
+
+        .kpi-card .number {
+            font-size: 3.5rem;
+            font-weight: 800;
             color: var(--live-accent);
+            line-height: 1;
+            margin-bottom: 12px;
+            font-family: 'Roboto Mono', monospace;
+            text-shadow: 0 0 20px var(--live-accent-glow);
         }
 
-        /* Focus Visible para Acessibilidade Absoluta */
-        summary:focus-visible {
-            box-shadow: 0 0 0 2px var(--live-accent);
-            border-radius: 8px;
+        .kpi-card .label {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--live-text-main);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .step-content {
-            padding: 0 1rem 1rem 1rem;
+        /* Listas */
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 24px;
+        }
+
+        .feature-list li i {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--live-accent);
+            font-size: 1.5rem;
+        }
+
+        /* Tabela */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid var(--live-border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        th, td {
+            padding: 20px 24px;
+            text-align: left;
+            border-bottom: 1px solid var(--live-border);
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--live-text-main);
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            font-size: 1.05rem;
             color: var(--live-text-secondary);
-            font-size: 0.95rem;
         }
 
-        .step-content p {
-            margin-bottom: 0.8rem;
+        tr:last-child td {
+            border-bottom: none;
         }
 
-        .step-content ol {
-            padding-left: 1.5rem;
-            margin-bottom: 1rem;
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
         }
 
-        .step-content li {
-            margin-bottom: 0.5rem;
+        /* Gráfico de Barras */
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-top: 32px;
         }
 
-        .step-content strong {
-            color: var(--live-text-primary);
+        .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 24px;
         }
 
-        /* --- Tags de Status --- */
+        .bar-label {
+            flex: 0 0 200px;
+            text-align: right;
+            font-weight: 600;
+            color: var(--live-text-main);
+        }
+
+        .bar-track {
+            flex-grow: 1;
+            height: 48px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            border: 1px solid var(--live-border);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 16px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: width 1s ease-out;
+        }
+
+        .bar-fill.accent {
+            background: var(--live-accent);
+            color: var(--live-deep);
+            box-shadow: 0 0 15px var(--live-accent-glow);
+        }
+
+        .bar-fill.info {
+            background: var(--live-info);
+            color: var(--live-deep);
+        }
+
+        .bar-fill.neutral {
+            background: var(--live-text-secondary);
+            color: var(--live-deep);
+        }
+
+        /* Imagens */
+        .image-container {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--live-border);
+            box-shadow: var(--live-shadow);
+            position: relative;
+        }
+        
+        .image-container::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom right, rgba(14,245,149,0.1), transparent);
+            pointer-events: none;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: grayscale(20%) contrast(110%);
+        }
+
+        /* Badges/Tags */
         .tag {
             display: inline-block;
-            background: rgba(0, 209, 178, 0.1);
-            color: var(--live-accent);
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            border: 1px solid rgba(0, 209, 178, 0.2);
-            align-self: flex-start;
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            font-family: 'Roboto Mono', monospace;
         }
 
-        /* --- Responsividade --- */
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem;
-            }
+        .tag.green { background: rgba(14, 245, 149, 0.15); color: var(--live-accent); border: 1px solid rgba(14, 245, 149, 0.3); }
+        .tag.yellow { background: rgba(251, 191, 36, 0.15); color: var(--live-warning); border: 1px solid rgba(251, 191, 36, 0.3); }
+        .tag.red { background: rgba(248, 113, 113, 0.15); color: var(--live-error); border: 1px solid rgba(248, 113, 113, 0.3); }
 
-            header h1 {
-                font-size: 2rem;
+        /* Rodapé / CTA */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid var(--live-border);
+            margin-top: 40px;
+        }
+
+        footer h2 {
+            font-size: 2.5rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--live-accent);
+            color: var(--live-deep);
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            text-decoration: none;
+            margin-top: 32px;
+            transition: var(--transition-spring);
+            box-shadow: 0 4px 20px var(--live-accent-glow);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(14, 245, 149, 0.5);
+            background: #10d482;
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .grid-2-col, .grid-3-col {
+                grid-template-columns: 1fr;
+            }
+            .bar-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .bar-label {
+                text-align: left;
+                flex: none;
+            }
+            .bar-track {
+                width: 100%;
             }
         }
     </style>
 </head>
-
 <body>
 
-    <header>
-        <h1>Trilha Especialista Olist ERP</h1>
-        <p>Capacitação operacional e gerencial - Padrão Live Consultoria</p>
-    </header>
+    <main class="container">
+        
+        <!-- Header Section -->
+        <header>
+            <h1>Novo Modelo de Comissionamento Estratégico</h1>
+            <p>Alinhando a performance de vendas à saúde financeira e ao fluxo de caixa da empresa.</p>
+        </header>
 
-    <!-- MÓDULO 1 -->
-    <section class="module-section">
-        <h2 class="module-title">Módulo 1: Fundamentos e Cadastros (Backoffice)</h2>
-        <div class="grid-container">
-
-            <!-- Card 1.1 -->
-            <div class="glass-card">
-                <span class="tag">Gestão</span>
-                <h3>1.1 Cadastro de Vendedores e Equipe</h3>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/3fMSkZir7Xg" allowfullscreen
-                        title="Tutorial Cadastro de Vendedores"></iframe>
-                </div>
-                <details>
-                    <summary>Ver Passo a Passo</summary>
-                    <div class="step-content">
-                        <ol>
-                            <li>Acesse <strong>Menu > Cadastros > Vendedores</strong>.</li>
-                            <li>Clique em <strong>Incluir Vendedor</strong> no canto superior direito.</li>
-                            <li>Preencha os dados pessoais básicos. O único campo estritamente obrigatório nesta etapa
-                                inicial é o nome.</li>
-                            <li>No campo <em>Situação</em>, escolha:
-                                <ul>
-                                    <li><strong>Ativo com acesso ao sistema:</strong> Permite login próprio (exige que
-                                        você crie um "Usuário" associado na seção 'Dados de acesso' logo abaixo,
-                                        configurando e-mail e senha).</li>
-                                    <li><strong>Ativo:</strong> O vendedor não acessa o ERP, mas pode ser selecionado
-                                        nos pedidos de venda para fins de comissão.</li>
-                                    <li><strong>Inativo:</strong> Cadastro bloqueado para novas operações.</li>
-                                </ul>
-                            </li>
-                            <li>(Opcional) Vincule um depósito de estoque padrão que será afetado pelas vendas deste
-                                vendedor.</li>
-                            <li>Na aba <em>Comissões</em>, defina a taxa padrão ou utilize as regras de Linhas de
-                                Produto.</li>
-                            <li>Clique em <strong>Salvar</strong>.</li>
-                        </ol>
-                    </div>
-                </details>
+        <!-- Seção 1: Diagnóstico Atual -->
+        <section class="glass-panel">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-chart-line"></i> Diagnóstico Atual: O Custo Oculto das Taxas</h2>
+                <p>Análise de performance vs. rentabilidade real da operação.</p>
             </div>
 
-            <!-- Card 1.2 -->
-            <div class="glass-card">
-                <span class="tag">Operação</span>
-                <h3>1.2 Cadastro de Produtos Simples e Variações</h3>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/x8GvPSRFxW8" allowfullscreen
-                        title="Tutorial Cadastro de Produtos"></iframe>
-                </div>
-                <details>
-                    <summary>Ver Passo a Passo</summary>
-                    <div class="step-content">
-                        <ol>
-                            <li>Acesse <strong>Menu > Cadastros > Produtos</strong> e clique em <strong>Incluir
-                                    Produto</strong>.</li>
-                            <li>Para <strong>Produto Simples</strong>: Preencha a Descrição, SKU (Código interno
-                                essencial para integrações), Origem (Nacional/Estrangeira) e NCM (Obrigatórios para
-                                emissão de nota fiscal). Insira o valor no Preço de venda.</li>
-                            <li>Para produtos <strong>Com Variações</strong>: Altere a opção "Tipo" para "Com
-                                Variações". Um novo menu superior chamado "Variações" será liberado.</li>
-                            <li>Acesse a aba <em>Variações</em> e crie as grades (Ex: Tamanho, inserindo os valores P,
-                                M, G separados por vírgula; Cor, inserindo Preto, Vermelho).</li>
-                            <li>Ao salvar, o ERP cruzará automaticamente as grades gerando os SKUs filhos (cada variação
-                                será tratada como um produto individual no estoque).</li>
-                            <li>Acesse a aba <em>Dados Complementares</em> para inserir fotos (máx 2MB por imagem) ou
-                                URLs.</li>
-                        </ol>
+            <div class="grid-2-col">
+                <div style="display: flex; flex-direction: column; gap: 24px;">
+                    <div class="kpi-card">
+                        <div class="number">R$ 66.410</div>
+                        <div class="label">Média de Vendas Mensal</div>
                     </div>
-                </details>
+                    <div class="kpi-card" style="border-left-color: var(--live-warning);">
+                        <div class="number" style="color: var(--live-warning); text-shadow: none;">2,11%</div>
+                        <div class="label">Taxa Média Global de Comissão</div>
+                    </div>
+                </div>
+                <div>
+                    <h3>Análise Financeira</h3>
+                    <p>A comissão média atual gira em torno de <strong>R$ 1.621,00</strong> mensais por vendedor, com nossos <em>top performers</em> alcançando facilmente e superando a marca de R$ 90 mil em faturamento.</p>
+                    <p>Contudo, a rentabilidade real e a liquidez dessas vendas estão sendo <strong style="color: var(--live-error);">severamente comprometidas</strong> pelos custos elevados das operações de cartão de crédito a longo prazo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 2: O Problema do Parcelamento -->
+        <section class="glass-panel">
+            <div class="grid-2-col">
+                <div>
+                    <h3 style="font-size: 1.75rem; margin-bottom: 24px;">O Custo Invisível do Parcelamento</h3>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-arrow-right"></i> Vendas no Crédito 1x pagam cerca de <strong class="data-text">2,73%</strong> ao vendedor. Se a venda for estendida para 12x, a taxa recua minimamente para <strong class="data-text">1,81%</strong>.</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> Essa redução pífia de ~0,9% repassa <strong>quase todo o peso financeiro do parcelamento</strong> para a CASTOR RH.</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> A empresa hoje absorve taxas de antecipação e MDR que variam de <strong class="data-text" style="color: var(--live-error);">12% a 18%</strong>, corroendo a margem líquida.</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> Existe um evidente <strong>desalinhamento</strong> entre o risco financeiro assumido pela operação e a remuneração paga pelo esforço do vendedor.</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="Profissionais analisando dados financeiros em telas">
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 3: A Proposta Estratégica -->
+        <section class="glass-panel">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-shield-halved"></i> A Proposta Estratégica</h2>
+                <p>Um sistema focado em liquidez, proteção de margem e incentivos por performance.</p>
             </div>
 
-            <!-- Card 1.3 -->
-            <div class="glass-card">
-                <span class="tag">Precificação</span>
-                <h3>1.3 Gestor e Listas de Preços</h3>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/y05jqjz1G9w" allowfullscreen
-                        title="Tutorial Gestão de Preços"></iframe>
+            <h3 style="text-align: center; margin-bottom: 40px; font-size: 1.5rem;">Escalonamento por Liquidez</h3>
+
+            <div class="grid-3-col" style="margin-bottom: 60px;">
+                <div class="kpi-card" style="border-left-color: var(--live-accent);">
+                    <i class="fa-solid fa-money-bill-wave" style="font-size: 2.5rem; color: var(--live-accent); margin-bottom: 16px;"></i>
+                    <h4 style="color: var(--live-text-main); font-size: 1.25rem;">Faixa Verde</h4>
+                    <p style="font-size: 0.95rem;">Alta liquidez. Dinheiro, Pix, Débito e Crédito 1x. Comissão máxima para caixa rápido.</p>
+                    <span class="tag green">2,8%</span>
                 </div>
-                <details>
-                    <summary>Ver Passo a Passo</summary>
-                    <div class="step-content">
-                        <p>O recurso permite ter valores diferentes do mesmo produto para canais ou clientes distintos.
-                        </p>
-                        <ol>
-                            <li>Acesse <strong>Menu > Configurações > Cadastros > Listas de preços</strong>.</li>
-                            <li>Clique em <strong>Incluir lista de preço</strong>. Forneça um nome descritivo (Ex:
-                                Tabela Atacado, Tabela Loja Física).</li>
-                            <li>Defina a regra geral, se a lista terá um <em>acréscimo</em> ou <em>desconto</em>
-                                percentual (%) ou em valor real ($) sobre o preço base.</li>
-                            <li>Para aplicar em massa para Marketplaces: Acesse <strong>Cadastros > Produtos > Mais
-                                    ações > Gerenciar preços dos anúncios</strong>.</li>
-                            <li>Você pode configurar para que o valor seja "Igual ao produto" ou definir um "Preço
-                                fixo", podendo aplicar regras de arredondamento inteligente e descontos agressivos por
-                                campanha.</li>
-                        </ol>
-                    </div>
-                </details>
+                <div class="kpi-card" style="border-left-color: var(--live-warning);">
+                    <i class="fa-solid fa-credit-card" style="font-size: 2.5rem; color: var(--live-warning); margin-bottom: 16px;"></i>
+                    <h4 style="color: var(--live-text-main); font-size: 1.25rem;">Faixa Amarela</h4>
+                    <p style="font-size: 0.95rem;">Custo médio. Crédito de 2x a 6x e duplicatas curtas. Redução modesta para cobrir juros.</p>
+                    <span class="tag yellow">2,2%</span>
+                </div>
+                <div class="kpi-card" style="border-left-color: var(--live-error);">
+                    <i class="fa-solid fa-calendar-alt" style="font-size: 2.5rem; color: var(--live-error); margin-bottom: 16px;"></i>
+                    <h4 style="color: var(--live-text-main); font-size: 1.25rem;">Faixa Vermelha</h4>
+                    <p style="font-size: 0.95rem;">Alto custo. Parcelamentos 7x a 12x. Desincentivo forte para proteger a margem.</p>
+                    <span class="tag red">1,2%</span>
+                </div>
             </div>
 
-        </div>
-    </section>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Categoria / Liquidez</th>
+                            <th>Meios de Pagamento Contemplados</th>
+                            <th>Taxa Proposta</th>
+                            <th>Objetivo Estratégico</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Faixa Verde</strong> (Caixa Imediato)</td>
+                            <td>Dinheiro, Pix, Cartão de Débito, Crédito 1x</td>
+                            <td><span class="tag green">2,80%</span></td>
+                            <td>Incentivar caixa rápido sem custos extras</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Faixa Amarela</strong> (Venda a Prazo)</td>
+                            <td>Cartão de Crédito 2x a 6x, Duplicatas Curtas</td>
+                            <td><span class="tag yellow">2,20%</span></td>
+                            <td>Balancear conversão e custo de antecipação</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Faixa Vermelha</strong> (Prazo Longo)</td>
+                            <td>Cartão de Crédito 7x a 12x+, Duplicatas Longas</td>
+                            <td><span class="tag red">1,20%</span></td>
+                            <td>Blindar margem e repassar custo financeiro</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Serviços / Manutenção</strong></td>
+                            <td>Trocas, Vale Crédito, Cartão Presente</td>
+                            <td><span class="tag" style="background: rgba(255,255,255,0.1); color: var(--live-text-main);">1,00%</span></td>
+                            <td>Recompensar a retenção e fidelização</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-    <!-- MÓDULO 2 -->
-    <section class="module-section">
-        <h2 class="module-title">Módulo 2: O Ponto de Venda (Operação de Loja)</h2>
-        <div class="grid-container">
-
-            <!-- Card 2.1 -->
-            <div class="glass-card">
-                <span class="tag">Caixa</span>
-                <h3>2.1 Abertura de Caixa e Vendas Rápidas</h3>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/86iuTK6IzYY" allowfullscreen
-                        title="Tutorial Abertura de Caixa"></iframe>
-                </div>
-                <details>
-                    <summary>Ver Passo a Passo</summary>
-                    <div class="step-content">
-                        <ol>
-                            <li>Acesse <strong>Menu > Vendas > PDV</strong>.</li>
-                            <li>Informe o valor do "fundo de troco" que está na gaveta e clique em <strong>Abrir
-                                    Caixa</strong>.</li>
-                            <li>Para adicionar itens na venda, bipe os produtos com leitor ou busque pelo SKU/Nome no
-                                campo de pesquisa.</li>
-                            <li>(Opcional) Clique em <em>Informar cliente</em> ou aperte `F2` para identificar quem está
-                                comprando.</li>
-                            <li>Para agilizar, utilize o atalho de teclado <strong>Ctrl + 6</strong> para ir direto à
-                                tela de recebimento.</li>
-                            <li>Selecione a forma de pagamento (Dinheiro, Cartão, Múltiplas formas). Caso use integração
-                                (ex: Stone POS), o sistema envia o valor direto para a maquininha.</li>
-                            <li>Clique em Finalizar Venda para emitir o comprovante não fiscal ou faturar a NFC-e.</li>
-                        </ol>
-                    </div>
-                </details>
+        <!-- Seção 4: Bônus e Aceleradores -->
+        <section class="glass-panel">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-rocket"></i> Bônus e Aceleradores de Meta Mensal</h2>
+                <p>Meritocracia ativa: destravando prêmios baseados em volume de faturamento.</p>
             </div>
 
-            <!-- Card 2.2 -->
-            <div class="glass-card">
-                <span class="tag">Atendimento</span>
-                <h3>2.2 Faturar uma Pré-Venda no PDV</h3>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/86iuTK6IzYY" allowfullscreen
-                        title="Tutorial Faturar Pré-venda"></iframe>
-                </div>
-                <details>
-                    <summary>Ver Passo a Passo</summary>
-                    <div class="step-content">
-                        <p>Fluxo recomendado para lojas onde o vendedor atende no salão e direciona o cliente para pagar
-                            direto no operador de caixa.</p>
-                        <ol>
-                            <li><strong>Vendedor (Salão):</strong> Cria o pedido no ERP e clica na opção <strong>Salvar
-                                    para depois</strong>. O pedido fica aguardando.</li>
-                            <li><strong>Operador de Caixa (PDV):</strong> Clica em <strong>Mais ações > Faturar
-                                    pré-venda</strong>.</li>
-                            <li>Busca a venda utilizando o número do pedido, o CPF/CNPJ do cliente, nome ou telefone.
-                            </li>
-                            <li>Seleciona a venda e confirma os itens carregados em tela. <em>Nota: Se o vendedor deu um
-                                    desconto além do permitido, será necessário liberar com a senha do gerente
-                                    (Ctrl+Enter).</em></li>
-                            <li>Prossiga com o recebimento do pagamento e clique em <strong>Finalizar</strong> para a
-                                emissão da nota fiscal.</li>
-                        </ol>
+            <div class="bar-chart">
+                <div class="bar-row">
+                    <div class="bar-label">Super Meta (R$ 90k+)</div>
+                    <div class="bar-track">
+                        <div class="bar-fill accent" style="width: 90%;">+0,5% Retroativo</div>
                     </div>
-                </details>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">Meta Padrão (R$ 70k)</div>
+                    <div class="bar-track">
+                        <div class="bar-fill info" style="width: 70%;">+0,2% Retroativo</div>
+                    </div>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">Piso Base (Até R$ 55k)</div>
+                    <div class="bar-track">
+                        <div class="bar-fill neutral" style="width: 40%;">Sem Acelerador</div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Card 2.3 -->
-            <div class="glass-card">
-                <span class="tag">Pós-Venda</span>
-                <h3>2.3 Devoluções e Vales-Troca</h3>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/86iuTK6IzYY" allowfullscreen
-                        title="Tutorial Devoluções e Trocas"></iframe>
+            <p style="text-align: center; margin-top: 32px; font-style: italic;">
+                Esta estrutura de gatilhos escalonados premia agressivamente o faturamento. O acelerador incide sobre todo o volume vendido ao ultrapassar a meta, incentivando o grupo médio a atingir o nível dos "Top Performers".
+            </p>
+        </section>
+
+        <!-- Seção 5: Benefícios e Conclusão -->
+        <section class="glass-panel" style="border-top: 4px solid var(--live-accent);">
+            <h3 style="font-size: 2rem; margin-bottom: 32px; text-align: center;">Benefícios do Modelo</h3>
+            
+            <div class="grid-3-col">
+                <div>
+                    <h4 style="color: var(--live-accent);"><i class="fa-solid fa-check-circle"></i> Transparência Operacional</h4>
+                    <p>O vendedor entende rapidamente que liquidez gera maior retorno. O foco comercial passa de "apenas vender" para "vender com qualidade e inteligência".</p>
                 </div>
-                <details>
-                    <summary>Ver Passo a Passo</summary>
-                    <div class="step-content">
-                        <ol>
-                            <li>No PDV aberto, clique no botão <strong>Mais ações > Devolver produtos</strong>.</li>
-                            <li>No campo de pesquisa, busque a venda original pelo número da nota fiscal gerada, número
-                                do pedido original ou bipando o produto retornado.</li>
-                            <li>O sistema listará os itens daquela venda. Selecione a quantidade exata de itens que o
-                                cliente está devolvendo.</li>
-                            <li>Escolha a forma de compensação:
-                                <ul>
-                                    <li><strong>Vale-Troca:</strong> O ERP gera um código alfanumérico atrelado ao
-                                        cliente, que poderá ser resgatado como desconto na próxima compra.</li>
-                                    <li><strong>Dinheiro:</strong> O sistema dá baixa de saída no caixa atual para
-                                        devolução da quantia em espécie.</li>
-                                </ul>
-                            </li>
-                            <li>Ao finalizar, o sistema estornará o produto, recolocando-o no estoque, e emitirá a nota
-                                de devolução.</li>
-                        </ol>
-                    </div>
-                </details>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- MÓDULO 3 -->
-    <section class="module-section">
-        <h2 class="module-title">Módulo 3: Logística e Integrações</h2>
-        <div class="grid-container">
-
-            <!-- Card 3.1 -->
-            <div class="glass-card">
-                <span class="tag">Logística</span>
-                <h3>3.1 Separação e Embalagem (Picking/Packing)</h3>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/Fzn8FqX40Fw" allowfullscreen
-                        title="Tutorial Separação de Pedidos"></iframe>
+                <div>
+                    <h4 style="color: var(--live-accent);"><i class="fa-solid fa-lock"></i> Proteção Constante</h4>
+                    <p>As taxas drasticamente menores em parcelamentos longos blindam a margem de lucro da empresa contra os altos custos ocultos das operadoras.</p>
                 </div>
-                <details>
-                    <summary>Ver Passo a Passo</summary>
-                    <div class="step-content">
-                        <ol>
-                            <li>Acesse <strong>Menu > Vendas > Separação</strong>.</li>
-                            <li>Na aba <em>Aguardando separação</em>, selecione os pedidos liberados e envie para a aba
-                                <em>Em separação</em>.</li>
-                            <li>Imprima a lista de coleta consolidada para ir ao estoque recolher as mercadorias físicas
-                                (Picking).</li>
-                            <li>Ao retornar à bancada, acesse a aba <em>Separadas</em> e inicie o Checkout/Embalagem do
-                                pedido bipando os produtos individualmente para evitar erros de envio humano.</li>
-                            <li><strong>Automação Opcional:</strong> Se as configurações do PrintNode estiverem ativas,
-                                ao bipar a última unidade do pacote, o sistema autoriza a nota na Sefaz, imprime a DANFE
-                                e cospe a etiqueta de transporte automaticamente, movendo o pedido para a aba
-                                <em>Embaladas</em>.</li>
-                        </ol>
-                    </div>
-                </details>
-            </div>
-
-            <!-- Card 3.2 -->
-            <div class="glass-card">
-                <span class="tag">Suprimentos</span>
-                <h3>3.2 Conferência de Compra (Entrada de NF)</h3>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/Fzn8FqX40Fw" allowfullscreen
-                        title="Tutorial Conferência de Compra"></iframe>
+                <div>
+                    <h4 style="color: var(--live-accent);"><i class="fa-solid fa-ranking-star"></i> Meritocracia Ativa</h4>
+                    <p>O sistema destrava aceleradores para os <em>Top Performers</em>, puxando a média geral de vendas para cima sem onerar o caixa da empresa.</p>
                 </div>
-                <details>
-                    <summary>Ver Passo a Passo</summary>
-                    <div class="step-content">
-                        <ol>
-                            <li>Acesse <strong>Menu > Suprimentos > Conferência de compra</strong>.</li>
-                            <li>Clique para importar o XML da nota fiscal enviada pelo seu fornecedor.</li>
-                            <li><em>Recomendação de Gestão:</em> Em Configurações, habilite a "Conferência Cega". Isso
-                                oculta a quantidade de itens descritos na NF, forçando a equipe a contar fisicamente as
-                                peças na doca.</li>
-                            <li>Bipe os produtos recebidos. Caso falte mercadoria, a nota irá para a aba <em>Com
-                                    problema</em>. Se bater a contagem, vai para <em>Conferidos</em>.</li>
-                            <li>Por fim, na aba <em>Conferidos</em>, clique no menu de contexto (três pontos) ao lado da
-                                nota e execute <strong>Lançar Estoque</strong> para atualizar o inventário do ERP.</li>
-                        </ol>
-                    </div>
-                </details>
             </div>
+        </section>
 
-            <!-- Card 3.3 -->
-            <div class="glass-card">
-                <span class="tag">Relacionamento</span>
-                <h3>3.3 Gestão de CRM e Automação</h3>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/Fzn8FqX40Fw" allowfullscreen
-                        title="Tutorial CRM e Automação"></iframe>
-                </div>
-                <details>
-                    <summary>Ver Passo a Passo</summary>
-                    <div class="step-content">
-                        <ol>
-                            <li>Acesse <strong>Menu > Vendas > CRM</strong> para visualizar seu funil de negócios.</li>
-                            <li>Clique em <strong>Incluir assunto</strong>. Preencha o contato, a origem e classifique o
-                                estágio atual (ex: Prospecção, Negociação, Pós-venda).</li>
-                            <li>Dentro do "Assunto" criado, observe a <em>Linha do Tempo</em>. Aqui você pode registrar
-                                o histórico de conversas e criar "Ações" (tarefas) com datas limites para vendedores
-                                retornarem o contato.</li>
-                            <li>No menu de atalhos, você pode gerar rapidamente uma <strong>Proposta Comercial</strong>.
-                            </li>
-                            <li><strong>Dica Ninja:</strong> Ative a configuração <em>Compartilhar documento via
-                                    WhatsApp</em> (Menu > Configurações > Aba Geral > Configuração do envio de
-                                documentos). Isso adiciona um atalho para enviar o link em PDF da proposta/nota fiscal
-                                direto para o número do cliente via WhatsApp Web/Desktop.</li>
-                        </ol>
-                    </div>
-                </details>
-            </div>
+        <!-- Footer CTA -->
+        <footer>
+            <h2>Próximos Passos</h2>
+            <p>Pronto para aplicar a nova modelagem ao faturamento de testes?</p>
+            <a href="#" class="cta-button">
+                <i class="fa-solid fa-calculator"></i> Iniciar Simulação Financeira
+            </a>
+        </footer>
 
-        </div>
-    </section>
+    </main>
 
 </body>
-
 </html>
+```
