@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta comissionamento Goianita</title>
+
+    <!-- Google Fonts: Inter para Títulos, Roboto para Corpo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* --- Tokens V6.0 (Live Consultoria) --- */
+        :root {
+            --live-deep: #06192a;
+            --live-glass: rgba(10, 36, 61, 0.70);
+            --live-glass-hover: rgba(15, 45, 75, 0.85);
+            --glass-blur: blur(16px) saturate(180%);
+            --live-accent: #00d1b2;
+            --live-accent-glow: rgba(0, 209, 178, 0.4);
+            --live-text-primary: #e0e6ed;
+            --live-text-secondary: #94a3b8;
+            --live-border: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--live-deep);
+            color: var(--live-text-primary);
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            padding: 2rem;
+            /* Efeito de iluminação sutil no fundo (Flashlight/Glow) */
+            background-image: radial-gradient(circle at top right, rgba(0, 209, 178, 0.05), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(10, 36, 61, 0.8), transparent 40%);
+            background-attachment: fixed;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Inter', sans-serif;
+            color: var(--live-text-primary);
+            font-weight: 600;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-top: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--live-accent);
+            text-shadow: 0 0 20px var(--live-accent-glow);
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: var(--live-text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* --- Grid & Organismos --- */
+        .module-section {
+            margin-bottom: 4rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .module-title {
+            font-size: 1.8rem;
+            border-bottom: 1px solid var(--live-border);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        /* --- Glass Cards (Moléculas) --- */
+        .glass-card {
+            background: var(--live-glass);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--live-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .glass-card:hover {
+            background: var(--live-glass-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .glass-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--live-accent);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--live-border);
+            background-color: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* --- Accordion para Passo a Passo (Acessibilidade) --- */
+        details {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--live-border);
+            border-radius: 8px;
+            margin-top: auto;
+            /* Empurra para o final do card */
+        }
+
+        summary {
+            padding: 1rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
+            color: var(--live-text-primary);
+            transition: color 0.3s ease;
+            list-style: none;
+            /* Remove seta padrão em alguns browsers */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            color: var(--live-accent);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        details[open] summary::after {
+            content: '−';
+            transform: rotate(180deg);
+        }
+
+        summary:hover {
+            color: var(--live-accent);
+        }
+
+        /* Focus Visible para Acessibilidade Absoluta */
+        summary:focus-visible {
+            box-shadow: 0 0 0 2px var(--live-accent);
+            border-radius: 8px;
+        }
+
+        .step-content {
+            padding: 0 1rem 1rem 1rem;
+            color: var(--live-text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .step-content p {
+            margin-bottom: 0.8rem;
+        }
+
+        .step-content ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content strong {
+            color: var(--live-text-primary);
+        }
+
+        /* --- Tags de Status --- */
+        .tag {
+            display: inline-block;
+            background: rgba(0, 209, 178, 0.1);
+            color: var(--live-accent);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0, 209, 178, 0.2);
+            align-self: flex-start;
+        }
+
+        /* --- Responsividade --- */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Trilha Especialista Olist ERP</h1>
+        <p>Capacitação operacional e gerencial - Padrão Live Consultoria</p>
+    </header>
+
+    <!-- MÓDULO 1 -->
+    <section class="module-section">
+        <h2 class="module-title">Módulo 1: Fundamentos e Cadastros (Backoffice)</h2>
+        <div class="grid-container">
+
+            <!-- Card 1.1 -->
+            <div class="glass-card">
+                <span class="tag">Gestão</span>
+                <h3>1.1 Cadastro de Vendedores e Equipe</h3>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/3fMSkZir7Xg" allowfullscreen
+                        title="Tutorial Cadastro de Vendedores"></iframe>
+                </div>
+                <details>
+                    <summary>Ver Passo a Passo</summary>
+                    <div class="step-content">
+                        <ol>
+                            <li>Acesse <strong>Menu > Cadastros > Vendedores</strong>.</li>
+                            <li>Clique em <strong>Incluir Vendedor</strong> no canto superior direito.</li>
+                            <li>Preencha os dados pessoais básicos. O único campo estritamente obrigatório nesta etapa
+                                inicial é o nome.</li>
+                            <li>No campo <em>Situação</em>, escolha:
+                                <ul>
+                                    <li><strong>Ativo com acesso ao sistema:</strong> Permite login próprio (exige que
+                                        você crie um "Usuário" associado na seção 'Dados de acesso' logo abaixo,
+                                        configurando e-mail e senha).</li>
+                                    <li><strong>Ativo:</strong> O vendedor não acessa o ERP, mas pode ser selecionado
+                                        nos pedidos de venda para fins de comissão.</li>
+                                    <li><strong>Inativo:</strong> Cadastro bloqueado para novas operações.</li>
+                                </ul>
+                            </li>
+                            <li>(Opcional) Vincule um depósito de estoque padrão que será afetado pelas vendas deste
+                                vendedor.</li>
+                            <li>Na aba <em>Comissões</em>, defina a taxa padrão ou utilize as regras de Linhas de
+                                Produto.</li>
+                            <li>Clique em <strong>Salvar</strong>.</li>
+                        </ol>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Card 1.2 -->
+            <div class="glass-card">
+                <span class="tag">Operação</span>
+                <h3>1.2 Cadastro de Produtos Simples e Variações</h3>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/x8GvPSRFxW8" allowfullscreen
+                        title="Tutorial Cadastro de Produtos"></iframe>
+                </div>
+                <details>
+                    <summary>Ver Passo a Passo</summary>
+                    <div class="step-content">
+                        <ol>
+                            <li>Acesse <strong>Menu > Cadastros > Produtos</strong> e clique em <strong>Incluir
+                                    Produto</strong>.</li>
+                            <li>Para <strong>Produto Simples</strong>: Preencha a Descrição, SKU (Código interno
+                                essencial para integrações), Origem (Nacional/Estrangeira) e NCM (Obrigatórios para
+                                emissão de nota fiscal). Insira o valor no Preço de venda.</li>
+                            <li>Para produtos <strong>Com Variações</strong>: Altere a opção "Tipo" para "Com
+                                Variações". Um novo menu superior chamado "Variações" será liberado.</li>
+                            <li>Acesse a aba <em>Variações</em> e crie as grades (Ex: Tamanho, inserindo os valores P,
+                                M, G separados por vírgula; Cor, inserindo Preto, Vermelho).</li>
+                            <li>Ao salvar, o ERP cruzará automaticamente as grades gerando os SKUs filhos (cada variação
+                                será tratada como um produto individual no estoque).</li>
+                            <li>Acesse a aba <em>Dados Complementares</em> para inserir fotos (máx 2MB por imagem) ou
+                                URLs.</li>
+                        </ol>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Card 1.3 -->
+            <div class="glass-card">
+                <span class="tag">Precificação</span>
+                <h3>1.3 Gestor e Listas de Preços</h3>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/y05jqjz1G9w" allowfullscreen
+                        title="Tutorial Gestão de Preços"></iframe>
+                </div>
+                <details>
+                    <summary>Ver Passo a Passo</summary>
+                    <div class="step-content">
+                        <p>O recurso permite ter valores diferentes do mesmo produto para canais ou clientes distintos.
+                        </p>
+                        <ol>
+                            <li>Acesse <strong>Menu > Configurações > Cadastros > Listas de preços</strong>.</li>
+                            <li>Clique em <strong>Incluir lista de preço</strong>. Forneça um nome descritivo (Ex:
+                                Tabela Atacado, Tabela Loja Física).</li>
+                            <li>Defina a regra geral, se a lista terá um <em>acréscimo</em> ou <em>desconto</em>
+                                percentual (%) ou em valor real ($) sobre o preço base.</li>
+                            <li>Para aplicar em massa para Marketplaces: Acesse <strong>Cadastros > Produtos > Mais
+                                    ações > Gerenciar preços dos anúncios</strong>.</li>
+                            <li>Você pode configurar para que o valor seja "Igual ao produto" ou definir um "Preço
+                                fixo", podendo aplicar regras de arredondamento inteligente e descontos agressivos por
+                                campanha.</li>
+                        </ol>
+                    </div>
+                </details>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MÓDULO 2 -->
+    <section class="module-section">
+        <h2 class="module-title">Módulo 2: O Ponto de Venda (Operação de Loja)</h2>
+        <div class="grid-container">
+
+            <!-- Card 2.1 -->
+            <div class="glass-card">
+                <span class="tag">Caixa</span>
+                <h3>2.1 Abertura de Caixa e Vendas Rápidas</h3>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/86iuTK6IzYY" allowfullscreen
+                        title="Tutorial Abertura de Caixa"></iframe>
+                </div>
+                <details>
+                    <summary>Ver Passo a Passo</summary>
+                    <div class="step-content">
+                        <ol>
+                            <li>Acesse <strong>Menu > Vendas > PDV</strong>.</li>
+                            <li>Informe o valor do "fundo de troco" que está na gaveta e clique em <strong>Abrir
+                                    Caixa</strong>.</li>
+                            <li>Para adicionar itens na venda, bipe os produtos com leitor ou busque pelo SKU/Nome no
+                                campo de pesquisa.</li>
+                            <li>(Opcional) Clique em <em>Informar cliente</em> ou aperte `F2` para identificar quem está
+                                comprando.</li>
+                            <li>Para agilizar, utilize o atalho de teclado <strong>Ctrl + 6</strong> para ir direto à
+                                tela de recebimento.</li>
+                            <li>Selecione a forma de pagamento (Dinheiro, Cartão, Múltiplas formas). Caso use integração
+                                (ex: Stone POS), o sistema envia o valor direto para a maquininha.</li>
+                            <li>Clique em Finalizar Venda para emitir o comprovante não fiscal ou faturar a NFC-e.</li>
+                        </ol>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Card 2.2 -->
+            <div class="glass-card">
+                <span class="tag">Atendimento</span>
+                <h3>2.2 Faturar uma Pré-Venda no PDV</h3>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/86iuTK6IzYY" allowfullscreen
+                        title="Tutorial Faturar Pré-venda"></iframe>
+                </div>
+                <details>
+                    <summary>Ver Passo a Passo</summary>
+                    <div class="step-content">
+                        <p>Fluxo recomendado para lojas onde o vendedor atende no salão e direciona o cliente para pagar
+                            direto no operador de caixa.</p>
+                        <ol>
+                            <li><strong>Vendedor (Salão):</strong> Cria o pedido no ERP e clica na opção <strong>Salvar
+                                    para depois</strong>. O pedido fica aguardando.</li>
+                            <li><strong>Operador de Caixa (PDV):</strong> Clica em <strong>Mais ações > Faturar
+                                    pré-venda</strong>.</li>
+                            <li>Busca a venda utilizando o número do pedido, o CPF/CNPJ do cliente, nome ou telefone.
+                            </li>
+                            <li>Seleciona a venda e confirma os itens carregados em tela. <em>Nota: Se o vendedor deu um
+                                    desconto além do permitido, será necessário liberar com a senha do gerente
+                                    (Ctrl+Enter).</em></li>
+                            <li>Prossiga com o recebimento do pagamento e clique em <strong>Finalizar</strong> para a
+                                emissão da nota fiscal.</li>
+                        </ol>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Card 2.3 -->
+            <div class="glass-card">
+                <span class="tag">Pós-Venda</span>
+                <h3>2.3 Devoluções e Vales-Troca</h3>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/86iuTK6IzYY" allowfullscreen
+                        title="Tutorial Devoluções e Trocas"></iframe>
+                </div>
+                <details>
+                    <summary>Ver Passo a Passo</summary>
+                    <div class="step-content">
+                        <ol>
+                            <li>No PDV aberto, clique no botão <strong>Mais ações > Devolver produtos</strong>.</li>
+                            <li>No campo de pesquisa, busque a venda original pelo número da nota fiscal gerada, número
+                                do pedido original ou bipando o produto retornado.</li>
+                            <li>O sistema listará os itens daquela venda. Selecione a quantidade exata de itens que o
+                                cliente está devolvendo.</li>
+                            <li>Escolha a forma de compensação:
+                                <ul>
+                                    <li><strong>Vale-Troca:</strong> O ERP gera um código alfanumérico atrelado ao
+                                        cliente, que poderá ser resgatado como desconto na próxima compra.</li>
+                                    <li><strong>Dinheiro:</strong> O sistema dá baixa de saída no caixa atual para
+                                        devolução da quantia em espécie.</li>
+                                </ul>
+                            </li>
+                            <li>Ao finalizar, o sistema estornará o produto, recolocando-o no estoque, e emitirá a nota
+                                de devolução.</li>
+                        </ol>
+                    </div>
+                </details>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MÓDULO 3 -->
+    <section class="module-section">
+        <h2 class="module-title">Módulo 3: Logística e Integrações</h2>
+        <div class="grid-container">
+
+            <!-- Card 3.1 -->
+            <div class="glass-card">
+                <span class="tag">Logística</span>
+                <h3>3.1 Separação e Embalagem (Picking/Packing)</h3>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/Fzn8FqX40Fw" allowfullscreen
+                        title="Tutorial Separação de Pedidos"></iframe>
+                </div>
+                <details>
+                    <summary>Ver Passo a Passo</summary>
+                    <div class="step-content">
+                        <ol>
+                            <li>Acesse <strong>Menu > Vendas > Separação</strong>.</li>
+                            <li>Na aba <em>Aguardando separação</em>, selecione os pedidos liberados e envie para a aba
+                                <em>Em separação</em>.</li>
+                            <li>Imprima a lista de coleta consolidada para ir ao estoque recolher as mercadorias físicas
+                                (Picking).</li>
+                            <li>Ao retornar à bancada, acesse a aba <em>Separadas</em> e inicie o Checkout/Embalagem do
+                                pedido bipando os produtos individualmente para evitar erros de envio humano.</li>
+                            <li><strong>Automação Opcional:</strong> Se as configurações do PrintNode estiverem ativas,
+                                ao bipar a última unidade do pacote, o sistema autoriza a nota na Sefaz, imprime a DANFE
+                                e cospe a etiqueta de transporte automaticamente, movendo o pedido para a aba
+                                <em>Embaladas</em>.</li>
+                        </ol>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Card 3.2 -->
+            <div class="glass-card">
+                <span class="tag">Suprimentos</span>
+                <h3>3.2 Conferência de Compra (Entrada de NF)</h3>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/Fzn8FqX40Fw" allowfullscreen
+                        title="Tutorial Conferência de Compra"></iframe>
+                </div>
+                <details>
+                    <summary>Ver Passo a Passo</summary>
+                    <div class="step-content">
+                        <ol>
+                            <li>Acesse <strong>Menu > Suprimentos > Conferência de compra</strong>.</li>
+                            <li>Clique para importar o XML da nota fiscal enviada pelo seu fornecedor.</li>
+                            <li><em>Recomendação de Gestão:</em> Em Configurações, habilite a "Conferência Cega". Isso
+                                oculta a quantidade de itens descritos na NF, forçando a equipe a contar fisicamente as
+                                peças na doca.</li>
+                            <li>Bipe os produtos recebidos. Caso falte mercadoria, a nota irá para a aba <em>Com
+                                    problema</em>. Se bater a contagem, vai para <em>Conferidos</em>.</li>
+                            <li>Por fim, na aba <em>Conferidos</em>, clique no menu de contexto (três pontos) ao lado da
+                                nota e execute <strong>Lançar Estoque</strong> para atualizar o inventário do ERP.</li>
+                        </ol>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Card 3.3 -->
+            <div class="glass-card">
+                <span class="tag">Relacionamento</span>
+                <h3>3.3 Gestão de CRM e Automação</h3>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/Fzn8FqX40Fw" allowfullscreen
+                        title="Tutorial CRM e Automação"></iframe>
+                </div>
+                <details>
+                    <summary>Ver Passo a Passo</summary>
+                    <div class="step-content">
+                        <ol>
+                            <li>Acesse <strong>Menu > Vendas > CRM</strong> para visualizar seu funil de negócios.</li>
+                            <li>Clique em <strong>Incluir assunto</strong>. Preencha o contato, a origem e classifique o
+                                estágio atual (ex: Prospecção, Negociação, Pós-venda).</li>
+                            <li>Dentro do "Assunto" criado, observe a <em>Linha do Tempo</em>. Aqui você pode registrar
+                                o histórico de conversas e criar "Ações" (tarefas) com datas limites para vendedores
+                                retornarem o contato.</li>
+                            <li>No menu de atalhos, você pode gerar rapidamente uma <strong>Proposta Comercial</strong>.
+                            </li>
+                            <li><strong>Dica Ninja:</strong> Ative a configuração <em>Compartilhar documento via
+                                    WhatsApp</em> (Menu > Configurações > Aba Geral > Configuração do envio de
+                                documentos). Isso adiciona um atalho para enviar o link em PDF da proposta/nota fiscal
+                                direto para o número do cliente via WhatsApp Web/Desktop.</li>
+                        </ol>
+                    </div>
+                </details>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+
+</html>
