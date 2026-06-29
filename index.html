@@ -1,399 +1,616 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposta de Comissionamento Estratégico — Casa Goianita</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap"
-        rel="stylesheet">
+    <title>Novo Modelo de Comissionamento Estratégico - CASTOR RH</title>
+    
+    <!-- Tipografia Live V6.0 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
+        /* 1. NÚCLEO DA IDENTIDADE VISUAL (Brand Core V6.0) */
         :root {
-            --primary-bg: #06192a;
-            --card-bg: #0A243D;
-            --accent-color: #00e800;
-            /* Neon Green - Live Consultoria/Goianita */
-            --accent-glow: rgba(0, 232, 0, 0.4);
-            --text-primary: #ffffff;
-            --text-muted: #cccccc;
-            --font-primary: 'Poppins', sans-serif;
-            --font-secondary: 'Merriweather', serif;
-            --border-color: rgba(255, 255, 255, 0.1);
-            --space-md: 2rem;
-            --ease-fluid: cubic-bezier(0.4, 0.0, 0.2, 1);
+            /* Atmosfera (Backgrounds) */
+            --live-deep: #06192a;
+            
+            /* Superfícies (Refractive Glass) */
+            --live-glass: rgba(10, 36, 61, 0.70);
+            --live-glass-hover: rgba(15, 45, 75, 0.85);
+            --glass-blur: blur(16px) saturate(180%);
+            
+            /* Luz & Ação */
+            --live-accent: #0ef595;
+            --live-accent-glow: rgba(14, 245, 149, 0.3);
+            
+            /* Tipografia Cores */
+            --live-text-main: #ffffff;
+            --live-text-secondary: #94a3b8;
+            
+            /* Bordas & Sombras */
+            --live-border: rgba(255, 255, 255, 0.1);
+            --live-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            
+            /* Status Semântico */
+            --live-error: #f87171;
+            --live-warning: #fbbf24;
+            --live-info: #38bdf8;
+            
+            /* Transições (Micro-springs) */
+            --transition-spring: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
+        /* 2. BASE RESET & TIPOGRAFIA */
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
-            background-color: var(--primary-bg);
-            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
-            background-attachment: fixed;
-            color: var(--text-primary);
-            font-family: var(--font-primary);
+            background-color: var(--live-deep);
+            color: var(--live-text-main);
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            
+            /* Background sutil para dar profundidade */
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(14, 245, 149, 0.03), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(56, 189, 248, 0.03), transparent 25%);
+            background-attachment: fixed;
         }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        header {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: radial-gradient(circle at center, rgba(0, 232, 0, 0.08) 0%, transparent 70%);
-            position: relative;
-            padding: 4rem 2rem;
-        }
-
-        .logo {
-            height: 60px;
-            margin-bottom: 2rem;
-            animation: fadeInDown 1s var(--ease-fluid);
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(90deg, #fff 0%, #00e800 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: fadeInUp 1s var(--ease-fluid);
-        }
-
-        .subtitle {
-            font-size: 1.5rem;
-            color: var(--text-muted);
-            max-width: 800px;
-            animation: fadeInUp 1s var(--ease-fluid) 0.2s backwards;
-        }
-
-        section {
-            padding: 6rem 0;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s var(--ease-fluid);
-        }
-
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: var(--space-md);
-            margin-bottom: 2rem;
-            transition: transform 0.3s var(--ease-fluid), border-color 0.3s, box-shadow 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-color);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            color: var(--accent-color);
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            color: var(--text-primary);
+        h1, h2, h3, h4 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--live-text-main);
             margin-bottom: 1rem;
         }
 
-        .manifesto-text {
-            font-family: var(--font-secondary);
-            font-size: 1.25rem;
-            font-style: italic;
-            color: var(--text-muted);
-            border-left: 4px solid var(--accent-color);
-            padding-left: 2rem;
-            margin: 2rem 0;
+        p, li {
+            font-size: 1.125rem;
+            color: var(--live-text-secondary);
+            margin-bottom: 1rem;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        strong {
+            color: var(--live-text-main);
+            font-weight: 600;
         }
 
-        /* Tiers de Comissão */
-        .tier-card {
+        .data-text {
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        /* 3. LAYOUT & ORGANISMOS */
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 80px 24px;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            gap: 80px;
+        }
+
+        header {
             text-align: center;
+            padding: 60px 0 40px;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--live-text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accent-text {
+            color: var(--live-accent);
+        }
+
+        /* 4. COMPONENTES: GLASS PANELS (MOLÉCULAS) */
+        .glass-panel {
+            background: var(--live-glass);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--live-border);
+            border-radius: 16px;
+            box-shadow: var(--live-shadow);
+            padding: 48px;
+            transition: var(--transition-spring);
             position: relative;
             overflow: hidden;
         }
 
-        .tier-card::before {
+        .glass-panel:hover {
+            background: var(--live-glass-hover);
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Borda Neon sutil no topo do painel */
+        .glass-panel::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            height: 4px;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--live-border), transparent);
         }
 
-        .tier-ouro::before {
-            background: linear-gradient(90deg, #FFD700, #FDB931);
+        .section-header {
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--live-border);
+            padding-bottom: 16px;
         }
 
-        .tier-prata::before {
-            background: linear-gradient(90deg, #C0C0C0, #E8E8E8);
-        }
-
-        .tier-bronze::before {
-            background: linear-gradient(90deg, #CD7F32, #A0522D);
-        }
-
-        .tier-percentage {
-            font-size: 4rem;
-            font-weight: 800;
-            line-height: 1;
-            margin: 1.5rem 0;
-        }
-
-        .tier-ouro .tier-percentage {
-            color: #FFD700;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-        }
-
-        .tier-prata .tier-percentage {
-            color: #C0C0C0;
-            text-shadow: 0 0 15px rgba(192, 192, 192, 0.3);
-        }
-
-        .tier-bronze .tier-percentage {
-            color: #CD7F32;
-            text-shadow: 0 0 15px rgba(205, 127, 50, 0.3);
-        }
-
-        /* Aceleradores */
-        .bonus-item {
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 8px;
             display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border-left: 2px solid var(--accent-color);
+            align-items: center;
+            gap: 12px;
         }
 
-        .bonus-badge {
-            background: var(--accent-color);
-            color: var(--primary-bg);
-            padding: 0.5rem 1rem;
+        .section-header h2 i {
+            color: var(--live-accent);
+            font-size: 1.75rem;
+        }
+
+        /* 5. GRIDS E ESTRUTURAS DE CONTEÚDO */
+        .grid-2-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .grid-3-col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        /* 6. ÁTOMOS ESPECÍFICOS */
+        /* Cards de KPI */
+        .kpi-card {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--live-border);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            border-left: 4px solid var(--live-accent);
+        }
+
+        .kpi-card .number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--live-accent);
+            line-height: 1;
+            margin-bottom: 12px;
+            font-family: 'Roboto Mono', monospace;
+            text-shadow: 0 0 20px var(--live-accent-glow);
+        }
+
+        .kpi-card .label {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--live-text-main);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Listas */
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 24px;
+        }
+
+        .feature-list li i {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--live-accent);
+            font-size: 1.5rem;
+        }
+
+        /* Tabela */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid var(--live-border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        th, td {
+            padding: 20px 24px;
+            text-align: left;
+            border-bottom: 1px solid var(--live-border);
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--live-text-main);
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            font-size: 1.05rem;
+            color: var(--live-text-secondary);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Gráfico de Barras */
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .bar-label {
+            flex: 0 0 200px;
+            text-align: right;
+            font-weight: 600;
+            color: var(--live-text-main);
+        }
+
+        .bar-track {
+            flex-grow: 1;
+            height: 48px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            border: 1px solid var(--live-border);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 16px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: width 1s ease-out;
+        }
+
+        .bar-fill.accent {
+            background: var(--live-accent);
+            color: var(--live-deep);
+            box-shadow: 0 0 15px var(--live-accent-glow);
+        }
+
+        .bar-fill.info {
+            background: var(--live-info);
+            color: var(--live-deep);
+        }
+
+        .bar-fill.neutral {
+            background: var(--live-text-secondary);
+            color: var(--live-deep);
+        }
+
+        /* Imagens */
+        .image-container {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--live-border);
+            box-shadow: var(--live-shadow);
+            position: relative;
+        }
+        
+        .image-container::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom right, rgba(14,245,149,0.1), transparent);
+            pointer-events: none;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: grayscale(20%) contrast(110%);
+        }
+
+        /* Badges/Tags */
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .tag.green { background: rgba(14, 245, 149, 0.15); color: var(--live-accent); border: 1px solid rgba(14, 245, 149, 0.3); }
+        .tag.yellow { background: rgba(251, 191, 36, 0.15); color: var(--live-warning); border: 1px solid rgba(251, 191, 36, 0.3); }
+        .tag.red { background: rgba(248, 113, 113, 0.15); color: var(--live-error); border: 1px solid rgba(248, 113, 113, 0.3); }
+
+        /* Rodapé / CTA */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid var(--live-border);
+            margin-top: 40px;
+        }
+
+        footer h2 {
+            font-size: 2.5rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--live-accent);
+            color: var(--live-deep);
+            padding: 16px 32px;
             border-radius: 8px;
             font-weight: 700;
-            font-size: 1.2rem;
-            white-space: nowrap;
+            font-size: 1.125rem;
+            text-decoration: none;
+            margin-top: 32px;
+            transition: var(--transition-spring);
+            box-shadow: 0 4px 20px var(--live-accent-glow);
         }
 
-        footer {
-            padding: 4rem 0;
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 0.9rem;
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(14, 245, 149, 0.5);
+            background: #10d482;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .grid-2-col, .grid-3-col {
+                grid-template-columns: 1fr;
             }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            .bar-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
             }
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-40px);
+            .bar-label {
+                text-align: left;
+                flex: none;
             }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.8rem;
-            }
-
-            h2 {
-                font-size: 2rem;
+            .bar-track {
+                width: 100%;
             }
         }
     </style>
 </head>
-
 <body>
-    <header>
-        <div class="container">
-            <img src="https://raw.githubusercontent.com/Clebito2/ConsultoriaLive/main/Logo%20live%20oficial-21.png"
-                alt="Live Consultoria" class="logo">
-            <h1>Comissionamento Estratégico</h1>
-            <p class="subtitle">Nova proposta para a equipe de vendas da Casa Goianita. Protegendo a nossa margem,
-                recompensando a sua performance.</p>
-        </div>
-    </header>
 
-    <main>
-        <section class="container">
-            <h2>01. O Propósito</h2>
-            <div class="card">
-                <p>O mercado mudou e o nosso posicionamento também. O vendedor da Casa Goianita é agora um
-                    <strong>Consultor de Luxo</strong> e um curador de escolhas para o lar.</p>
-                <div class="manifesto-text">
-                    "O nosso papel é vender valor, não preçar. O desconto é a última ferramenta de fechamento, não o
-                    primeiro argumento."
-                </div>
-                <p>Nosso novo modelo de comissionamento foi desenhado para proteger a saúde financeira da empresa
-                    (Margem Líquida) ao mesmo tempo que recompensa agressivamente os consultores que trazem o dinheiro
-                    mais rápido para o caixa da loja.</p>
+    <main class="container">
+        
+        <!-- Header Section -->
+        <header>
+            <h1>Novo Modelo de Comissionamento Estratégico</h1>
+            <p>Alinhando a performance de vendas à saúde financeira e ao fluxo de caixa da empresa.</p>
+        </header>
+
+        <!-- Seção 1: Diagnóstico Atual -->
+        <section class="glass-panel">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-chart-line"></i> Diagnóstico Atual: O Custo Oculto das Taxas</h2>
+                <p>Análise de performance vs. rentabilidade real da operação.</p>
             </div>
-        </section>
 
-        <section class="container" style="background: rgba(0,0,0,0.2);">
-            <div class="container">
-                <h2>02. As 3 Faixas de Comissão</h2>
-                <p style="margin-bottom: 2rem; color: var(--text-muted); font-size: 1.1rem;">A comissão base é calculada
-                    sobre a venda líquida (descontados impostos e devoluções), dividida pela modalidade de pagamento
-                    escolhida pelo cliente.</p>
-
-                <div class="grid">
-                    <!-- Ouro -->
-                    <div class="card tier-card tier-ouro">
-                        <h3>Comissão Ouro</h3>
-                        <div class="tier-percentage">3.5%</div>
-                        <p style="color: var(--text-muted);">Vendas à vista</p>
-                        <p style="margin-top: 1rem; font-size: 0.9rem; font-weight: 600;">(PIX ou Cartão de Débito)</p>
+            <div class="grid-2-col">
+                <div style="display: flex; flex-direction: column; gap: 24px;">
+                    <div class="kpi-card">
+                        <div class="number">R$ 66.410</div>
+                        <div class="label">Média de Vendas Mensal</div>
                     </div>
-
-                    <!-- Prata -->
-                    <div class="card tier-card tier-prata">
-                        <h3>Comissão Prata</h3>
-                        <div class="tier-percentage">2.5%</div>
-                        <p style="color: var(--text-muted);">Vendas parceladas curtas</p>
-                        <p style="margin-top: 1rem; font-size: 0.9rem; font-weight: 600;">(Cartão de Crédito até 6x)</p>
+                    <div class="kpi-card" style="border-left-color: var(--live-warning);">
+                        <div class="number" style="color: var(--live-warning); text-shadow: none;">2,11%</div>
+                        <div class="label">Taxa Média Global de Comissão</div>
                     </div>
-
-                    <!-- Bronze -->
-                    <div class="card tier-card tier-bronze">
-                        <h3>Comissão Bronze</h3>
-                        <div class="tier-percentage">1.5%</div>
-                        <p style="color: var(--text-muted);">Vendas parceladas longas</p>
-                        <p style="margin-top: 1rem; font-size: 0.9rem; font-weight: 600;">(Cartão de Crédito de 7x a
-                            10x)</p>
-                    </div>
+                </div>
+                <div>
+                    <h3>Análise Financeira</h3>
+                    <p>A comissão média atual gira em torno de <strong>R$ 1.621,00</strong> mensais por vendedor, com nossos <em>top performers</em> alcançando facilmente e superando a marca de R$ 90 mil em faturamento.</p>
+                    <p>Contudo, a rentabilidade real e a liquidez dessas vendas estão sendo <strong style="color: var(--live-error);">severamente comprometidas</strong> pelos custos elevados das operações de cartão de crédito a longo prazo.</p>
                 </div>
             </div>
         </section>
 
-        <section class="container">
-            <h2>03. Aceleradores e Bônus</h2>
-            <p style="margin-bottom: 2rem; color: var(--text-muted); font-size: 1.1rem;">Nós queremos que você supere
-                limites. Por isso, criamos multiplicadores para quem entrega além do esperado.</p>
-
-            <div class="card">
-                <div class="bonus-item">
-                    <div class="bonus-badge">+0.5%</div>
-                    <div>
-                        <h3>Bater a Meta da Loja</h3>
-                        <p style="color: var(--text-muted);">Se a loja atingir 100% da meta mensal, todos os consultores
-                            ganham um adicional de 0.5% sobre as suas próprias vendas do período.</p>
-                    </div>
+        <!-- Seção 2: O Problema do Parcelamento -->
+        <section class="glass-panel">
+            <div class="grid-2-col">
+                <div>
+                    <h3 style="font-size: 1.75rem; margin-bottom: 24px;">O Custo Invisível do Parcelamento</h3>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-arrow-right"></i> Vendas no Crédito 1x pagam cerca de <strong class="data-text">2,73%</strong> ao vendedor. Se a venda for estendida para 12x, a taxa recua minimamente para <strong class="data-text">1,81%</strong>.</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> Essa redução pífia de ~0,9% repassa <strong>quase todo o peso financeiro do parcelamento</strong> para a CASTOR RH.</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> A empresa hoje absorve taxas de antecipação e MDR que variam de <strong class="data-text" style="color: var(--live-error);">12% a 18%</strong>, corroendo a margem líquida.</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> Existe um evidente <strong>desalinhamento</strong> entre o risco financeiro assumido pela operação e a remuneração paga pelo esforço do vendedor.</li>
+                    </ul>
                 </div>
-
-                <div class="bonus-item">
-                    <div class="bonus-badge">x2 (Dobro)</div>
-                    <div>
-                        <h3>Produtos Foco (Ex: Marca Própria)</h3>
-                        <p style="color: var(--text-muted);">A venda de produtos estratégicos definidos pela diretoria
-                            no mês terá o seu percentual de comissão multiplicado por dois.</p>
-                    </div>
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="Profissionais analisando dados financeiros em telas">
                 </div>
             </div>
         </section>
 
-        <section class="container" style="background: rgba(0,0,0,0.1);">
-            <div class="container">
-                <h2>04. Regras Importantes e Estornos</h2>
-                <div class="grid">
-                    <div class="card">
-                        <h3>Política de Estornos</h3>
-                        <p style="margin-top: 1rem; color: var(--text-muted);">
-                            Em caso de devolução ou cancelamento da venda por parte do cliente, a comissão referente
-                            àquela transação será estornada do consultor no fechamento do mês seguinte.
-                        </p>
+        <!-- Seção 3: A Proposta Estratégica -->
+        <section class="glass-panel">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-shield-halved"></i> A Proposta Estratégica</h2>
+                <p>Um sistema focado em liquidez, proteção de margem e incentivos por performance.</p>
+            </div>
+
+            <h3 style="text-align: center; margin-bottom: 40px; font-size: 1.5rem;">Escalonamento por Liquidez</h3>
+
+            <div class="grid-3-col" style="margin-bottom: 60px;">
+                <div class="kpi-card" style="border-left-color: var(--live-accent);">
+                    <i class="fa-solid fa-money-bill-wave" style="font-size: 2.5rem; color: var(--live-accent); margin-bottom: 16px;"></i>
+                    <h4 style="color: var(--live-text-main); font-size: 1.25rem;">Comissão Ouro</h4>
+                    <p style="font-size: 0.95rem;">Alta liquidez. Dinheiro, Pix, Débito e Crédito à Vista. Comissão máxima para caixa rápido.</p>
+                    <span class="tag green">3,2%</span>
+                </div>
+                <div class="kpi-card" style="border-left-color: var(--live-warning);">
+                    <i class="fa-solid fa-credit-card" style="font-size: 2.5rem; color: var(--live-warning); margin-bottom: 16px;"></i>
+                    <h4 style="color: var(--live-text-main); font-size: 1.25rem;">Comissão Prata</h4>
+                    <p style="font-size: 0.95rem;">Custo médio. Cartão de Crédito parcelado em até 6 vezes.</p>
+                    <span class="tag yellow">3,1%</span>
+                </div>
+                <div class="kpi-card" style="border-left-color: var(--live-error);">
+                    <i class="fa-solid fa-calendar-alt" style="font-size: 2.5rem; color: var(--live-error); margin-bottom: 16px;"></i>
+                    <h4 style="color: var(--live-text-main); font-size: 1.25rem;">Comissão Bronze</h4>
+                    <p style="font-size: 0.95rem;">Alto custo. Parcelamentos de 7x ou mais, e Duplicatas.</p>
+                    <span class="tag red">3,0%</span>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Categoria / Liquidez</th>
+                            <th>Meios de Pagamento Contemplados</th>
+                            <th>Taxa Proposta</th>
+                            <th>Objetivo Estratégico</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Comissão Ouro</strong> (Caixa Imediato)</td>
+                            <td>Dinheiro, Pix, Cartão de Débito, Crédito à Vista</td>
+                            <td><span class="tag green">3,20%</span></td>
+                            <td>Incentivar caixa rápido sem custos extras</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Comissão Prata</strong> (Venda a Prazo)</td>
+                            <td>Cartão de Crédito em até 6x</td>
+                            <td><span class="tag yellow">3,10%</span></td>
+                            <td>Balancear conversão e custo de antecipação</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Comissão Bronze</strong> (Prazo Longo)</td>
+                            <td>Cartão de Crédito 7x ou mais, e Duplicatas</td>
+                            <td><span class="tag red">3,00%</span></td>
+                            <td>Blindar margem e repassar custo financeiro</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Serviços / Manutenção</strong></td>
+                            <td>Trocas, Vale Crédito, Cartão Presente</td>
+                            <td><span class="tag" style="background: rgba(255,255,255,0.1); color: var(--live-text-main);">1,00%</span></td>
+                            <td>Recompensar a retenção e fidelização</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Seção 4: Bônus e Aceleradores -->
+        <section class="glass-panel">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-rocket"></i> Bônus e Incentivos por Modalidade</h2>
+                <p>Meritocracia ativa: destravando prêmios baseados em volume de vendas à vista (Ouro).</p>
+            </div>
+
+            <div class="bar-chart">
+                <div class="bar-row">
+                    <div class="bar-label">Bônus Ouro (Meta Atingida)</div>
+                    <div class="bar-track">
+                        <div class="bar-fill accent" style="width: 100%;">+ R$ 200,00 Fixo</div>
                     </div>
-                    <div class="card">
-                        <h3>Uso do Desconto</h3>
-                        <p style="margin-top: 1rem; color: var(--text-muted);">
-                            O consultor possui **0% de alçada** para dar descontos no balcão sem autorização. Ofereça
-                            parcelamento e experiência. Descontos de até 5% e 10% dependem da atuação exclusiva do
-                            Gerente ou da Diretoria.
-                        </p>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">Meta de Vendas à vista</div>
+                    <div class="bar-track">
+                        <div class="bar-fill info" style="width: 50%;">Em definição (%)</div>
                     </div>
                 </div>
             </div>
+
+            <p style="text-align: center; margin-top: 32px; font-style: italic;">
+                Em vez de punir as vendas parceladas, o sistema recompensa ativamente com um bônus fixo de R$ 200,00 os vendedores que atingirem a meta percentual de vendas "Ouro" (à vista) no fechamento do mês, incentivando a liquidez imediata.
+            </p>
         </section>
+
+        <!-- Seção 5: Benefícios e Conclusão -->
+        <section class="glass-panel" style="border-top: 4px solid var(--live-accent);">
+            <h3 style="font-size: 2rem; margin-bottom: 32px; text-align: center;">Benefícios do Modelo</h3>
+            
+            <div class="grid-3-col">
+                <div>
+                    <h4 style="color: var(--live-accent);"><i class="fa-solid fa-check-circle"></i> Transparência Operacional</h4>
+                    <p>O vendedor entende rapidamente que liquidez gera maior retorno. O foco comercial passa de "apenas vender" para "vender com qualidade e inteligência".</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--live-accent);"><i class="fa-solid fa-lock"></i> Proteção Constante</h4>
+                    <p>As taxas drasticamente menores em parcelamentos longos blindam a margem de lucro da empresa contra os altos custos ocultos das operadoras.</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--live-accent);"><i class="fa-solid fa-ranking-star"></i> Meritocracia Ativa</h4>
+                    <p>O sistema destrava aceleradores para os <em>Top Performers</em>, puxando a média geral de vendas para cima sem onerar o caixa da empresa.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer CTA -->
+        <footer>
+            <h2>Próximos Passos</h2>
+            <p>Pronto para aplicar a nova modelagem ao faturamento de testes?</p>
+            <a href="#" class="cta-button">
+                <i class="fa-solid fa-calculator"></i> Iniciar Simulação Financeira
+            </a>
+        </footer>
+
     </main>
 
-    <footer>
-        <div class="container">
-            <img src="https://raw.githubusercontent.com/Clebito2/ConsultoriaLive/main/Logo%20live%20oficial-21.png"
-                alt="Live Consultoria" style="height: 30px; margin-bottom: 1rem; opacity: 0.5;">
-            <p>© 2026 Live Consultoria. Documento Estratégico Goianita.</p>
-            <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.5;">Aprovado pelo Comitê Gestor.</p>
-        </div>
-    </footer>
-
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
-    </script>
 </body>
-
 </html>
+```
